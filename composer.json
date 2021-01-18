@@ -1,0 +1,39 @@
+{
+    "name": "thiagoprz/cpfcnpj-validator",
+    "description": "Laravel package to validate CPF (Brazilian taxpayer identification number) and CNPJ (national registry of legal entities in Brazil)",
+    "authors": [
+        {
+            "name": "Thiago Przyczynski",
+            "email": "przyczynski@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Thiagoprz\\CpfCnpjValidator\\CpfServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ],
+        "psr-4": {
+            "Thiagoprz\\CpfCnpjValidator\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Thiagoprz\\CpfCnpjValidator\\Test\\": "tests/"
+        }
+    },
+    "license": "MIT",
+    "require": {
+        "php": "^7.1.3",
+        "illuminate/support": "^5.5 || ^6.0 || ^7.0 || ^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.3@dev",
+        "orchestra/testbench": "^3.8"
+    }
+}
