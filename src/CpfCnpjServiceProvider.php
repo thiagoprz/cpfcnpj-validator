@@ -3,7 +3,7 @@
 namespace Thiagoprz\CpfCnpjValidator;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Validation\Validator;
+use Illuminate\Support\Facades\Validator;
 
 
 class CpfCnpjServiceProvider extends ServiceProvider
