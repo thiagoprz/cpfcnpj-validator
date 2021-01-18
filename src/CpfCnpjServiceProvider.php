@@ -24,7 +24,7 @@ class CpfCnpjServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadTranslationsFrom(__DIR__.'/lang/', 'cpfcnpj-validator');
-        $message = trans('validation.cpfcnpj') != 'validation.cpfcnpj' ? trans('validation.cpfcnpj') : trans('cpf-validator::validation.cpfcnpj');
+        $message = trans('validation.cpfcnpj') != 'validation.cpfcnpj' ? trans('validation.cpfcnpj') : trans('cpf-cpfcnpj::validation.cpfcnpj');
         Validator::extend('cpfcnpj', 'Thiagoprz\CpfCnpjValidator\CpfCnpj@passes', $message);
     }
 }
