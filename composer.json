@@ -10,7 +10,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Thiagoprz\\CpfCnpjValidator\\CpfServiceProvider"
+                "Thiagoprz\\CpfCnpjValidator\\CpfCnpjServiceProvider"
             ]
         }
     },
