@@ -9,7 +9,7 @@ CNPJ is the National Registry of Legal Entities in Brazil.
 Installation
 --
 
-`` composer install thiagoprz/cpfcnpj-validator ``
+`` composer require thiagoprz/cpfcnpj-validator ``
 
 Usage
 --
