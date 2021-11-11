@@ -57,10 +57,10 @@ class CpfCnpj extends Rule
         // Validating based on the calculation of the CPF
         for ($t = 9; $t < 11; $t++) {
             for ($d = 0, $c = 0; $c < $t; $c++) {
-                $d += $cpf{$c} * (($t + 1) - $c);
+                $d += $cpf[$c] * (($t + 1) - $c);
             }
             $d = ((10 * $d) % 11) % 10;
-            if ($cpf{$c} != $d) {
+            if ($cpf[$c] != $d) {
                 return false;
             }
         }
@@ -80,20 +80,20 @@ class CpfCnpj extends Rule
         // Validating first check digit
         for ($i = 0, $j = 5, $sum = 0; $i < 12; $i++)
         {
-            $sum += $cnpj{$i} * $j;
+            $sum += $cnpj[$i] * $j;
             $j = ($j == 2) ? 9 : $j - 1;
         }
         $rest = $sum % 11;
-        if ($cnpj{12} != ($rest < 2 ? 0 : 11 - $rest))
+        if ($cnpj[12] != ($rest < 2 ? 0 : 11 - $rest))
             return false;
         // Validating second check digit
         for ($i = 0, $j = 6, $sum = 0; $i < 13; $i++)
         {
-            $sum += $cnpj{$i} * $j;
+            $sum += $cnpj[$i] * $j;
             $j = ($j == 2) ? 9 : $j - 1;
         }
         $rest = $sum % 11;
-        return $cnpj{13} == ($rest < 2 ? 0 : 11 - $rest);
+        return $cnpj[13] == ($rest < 2 ? 0 : 11 - $rest);
     }
 
     /**
