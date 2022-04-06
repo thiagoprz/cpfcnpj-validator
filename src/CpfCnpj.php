@@ -24,17 +24,16 @@ class CpfCnpj extends Rule
      * @param  string  $value
      * @return bool
      */
-    public function passes($attribute, $value, $parameters = [])
+    public function passes($attribute, $value)
     {
-        if (!empty($parameters) && $parameters[0] == true && $value == '') {
-            return true;
-        }
-        $value = preg_replace('/[^0-9]/', '', (string)$value);
-        if (strlen($value) == 11) {
-            return $this->validateCpf($attribute, $value);
-        }
-        if (strlen($value) == 14) {
-            return $this->validateCnpj($attribute, $value);
+        if (!empty($value)) {
+            $value = preg_replace('/[^0-9]/', '', (string)$value);
+            if (strlen($value) == 11) {
+                return $this->validateCpf($attribute, $value);
+            }
+            if (strlen($value) == 14) {
+                return $this->validateCnpj($attribute, $value);
+            }
         }
         return false;
     }
@@ -47,11 +46,7 @@ class CpfCnpj extends Rule
     private function validateCpf($attribute, $cpf)
     {
         // Check size number
-        if (strlen($cpf) != 11) {
-            return false;
-        }
-        // Avoiding repeated digits. (111.111.111-11)
-        if (preg_match('/(\d)\1{10}/', $cpf)) {
+        if (strlen($cpf) != 11 || preg_match('/(\d)\1{10}/', $cpf)) {
             return false;
         }
         // Validating based on the calculation of the CPF
@@ -75,8 +70,9 @@ class CpfCnpj extends Rule
     private function validateCnpj($attribute, $cnpj)
     {
         // Validating size
-        if (strlen($cnpj) != 14)
+        if (strlen($cnpj) != 14) {
             return false;
+        }
         // Validating first check digit
         for ($i = 0, $j = 5, $sum = 0; $i < 12; $i++)
         {
@@ -84,8 +80,9 @@ class CpfCnpj extends Rule
             $j = ($j == 2) ? 9 : $j - 1;
         }
         $rest = $sum % 11;
-        if ($cnpj[12] != ($rest < 2 ? 0 : 11 - $rest))
+        if ($cnpj[12] != ($rest < 2 ? 0 : 11 - $rest)) {
             return false;
+        }
         // Validating second check digit
         for ($i = 0, $j = 6, $sum = 0; $i < 13; $i++)
         {
