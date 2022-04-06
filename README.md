@@ -3,7 +3,7 @@
 A Laravel package to validate CPF and CNPJ requested on the same input.
 
 
-[![Tests](https://github.com/thiagoprz/cpfcnpj-validator/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/thiagoprz/cpfcnpj-validator/actions/workflows/tests.yml)
+[![Tests](https://github.com/thiagoprz/cpfcnpj-validator/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/thiagoprz/cpfcnpj-validator/actions/workflows/tests.yml)
 
 #### CPF
 CPF is an individual taxpayer identification number given to people living in Brazil, both native Brazilians and resident foreigners.
